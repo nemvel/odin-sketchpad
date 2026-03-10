@@ -17,10 +17,19 @@ function renderGrid() {
         const square = document.createElement("div");
         square.style.width = squareWidth + "px";
         square.style.height = squareWidth + "px";
-        square.style.border = boardBorderWidth + "px solid black";
+        if (gridEnabled) {
+            square.style.border = boardBorderWidth + "px solid black";
+        } else {
+            square.style.border = "none";
+        }
+        square.style.backgroundColor = "white";
 
         square.addEventListener('mouseenter', (e) => {
-            e.target.style.background = "black";
+            if (rainbowModeOn) {
+                e.target.style.background = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+            } else {
+                e.target.style.background = "black";
+            }
         });
 
         board.appendChild(square);
@@ -40,3 +49,35 @@ function changeNumberOfSquares() {
         alert("Invalid number entered.");
     }
 }
+
+let gridEnabled = true;
+const toggleGridButton = document.querySelector(".toggleGridButton");
+toggleGridButton.addEventListener('click', () => toggleGrid());
+
+function toggleGrid() {
+    if (gridEnabled) {
+        [...board.children].forEach(square => {
+            square.style.border = "none";
+        });
+        gridEnabled = false;
+    } else {
+        [...board.children].forEach(square => {
+            square.style.border = boardBorderWidth + "px solid black";
+        });
+        gridEnabled = true;
+    }
+}
+
+let rainbowModeOn = false;
+
+const rainbowModeButton = document.querySelector(".rainbowModeButton");
+rainbowModeButton.addEventListener('click', () => {
+    rainbowModeOn = !rainbowModeOn;
+    rainbowModeButton.classList.toggle("active");
+});
+
+const clearBoardButton = document.querySelector(".clearBoardButton");
+clearBoardButton.addEventListener('click', () => {
+    board.innerHTML = "";
+    renderGrid();
+});

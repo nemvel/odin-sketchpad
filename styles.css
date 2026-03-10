@@ -4,7 +4,55 @@
     box-sizing: border-box;
 }
 
+body, button, input, textarea {
+    font-family: "Courier New", monospace;
+}
+
+.flex-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: lightblue;
+}
+
+.content {
+    display: flex;
+    gap: 50px;
+}
+
 .board {
     display: flex;
     flex-wrap: wrap;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.options button {
+    padding: 20px;
+    font-size: 1.5rem;
+    background: white;
+    border-radius: 20px;
+}
+
+.options .changeDensityButton {
+    background-image: url("images/grid.jpg");
+}
+
+.options .rainbowModeButton.active {
+    background: #9b2a2a;
+    background: linear-gradient(
+        90deg, 
+        rgba(155, 42, 42, 1) 0%, 
+        rgba(199, 195, 87, 1) 25%, 
+        rgba(118, 206, 140, 1) 50%,
+        rgba(96, 138, 215, 1) 75%, 
+        rgba(216, 83, 237, 1) 100%
+    );
+    color: white;
 }

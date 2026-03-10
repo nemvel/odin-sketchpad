@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-sketch</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body onload="renderGrid()">
-    <div class="container">
+    <div class="flex-container">
+        <h1>Etch-a-sketch</h1>
         <div class="content">
-            <button class="changeDensityButton">Change grid density</button>
             <div class="board">
 
+            </div>
+
+            <div class="options">
+                <button class="changeDensityButton">Change grid density</button>
+                <button class="toggleGridButton">Toggle grid</button>
+                <button class="rainbowModeButton">Rainbow mode</button>
+                <button class="clearBoardButton">Clear board <i class="fa-solid fa-eraser"></i></button>
             </div>
         </div>
     </div>
